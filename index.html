@@ -13,6 +13,12 @@
             width: 100%;
         }
 
+        html, body {
+            margin: 0;
+            height: 100%;
+            overflow: hidden
+        }
+
         ul {
             list-style: none;
         }
@@ -151,7 +157,7 @@
             padding-right: 15px;
         }
 
-        .lewa{
+        .lewa {
             padding-left: 15px;
         }
 
@@ -161,6 +167,22 @@
             font-size: 15px;
             padding: 10px;
             padding-left: 30px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: calc(100vh - 99px) 50px;
+            min-height: calc(100vh - 30px);
+            grid-template-areas: 'header' 'footer';
+        }
+
+        .first {
+            grid-area: header;
+        }
+
+        .last {
+            grid-area: footer;
         }
 
         /* MEDIA QUERIES */
@@ -246,55 +268,64 @@
                 text-align: center;
             }
         }
+
+        @media (max-height: 450px) {
+            footer {
+                display: none;
+                visibility: hidden;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="grid-container">
-        <header>
-            <!--Górna stopka-->
+        <div class="first">
+            <header>
+                <!--Górna stopka-->
+                <ul id="up_footer">
+                    <li class="gorne_linki" id="gmail"><a href="#">Gmail</a></li>
+                    <li class="gorne_linki"><a href="#">Grafika</a></li>
+                    <li id="zaloguj_sie"><a href="#">Zaloguj się</a></li>
+                </ul>
+            </header>
 
-            <ul id="up_footer">
-                <li class="gorne_linki" id="gmail"><a href="#">Gmail</a></li>
-                <li class="gorne_linki"><a href="#">Grafika</a></li>
-                <li id="zaloguj_sie"><a href="#">Zaloguj się</a></li>
-            </ul>
 
-        </header>
+            <!--Logo-->
 
+            <div class="google">
+                <a href="#" id="logo"><img src="https://www.google.pl/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=" photo google-logo_zpspkcztsjo.png" /></a>
+            </div>
 
-        <!--Logo-->
-        <div class="google">
-            <a href="#" id="logo"><img src="https://www.google.pl/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=" photo google-logo_zpspkcztsjo.png" /></a>
+            <!--Pole szukaj-->
+            <div class="pole_szukaj">
+                <form>
+                    <label for="szukaj"></label>
+                    <input type="text" id="szukaj">
+                </form>
+            </div>
+
+            <!--Przyciski-->
+            <div class="przyciski">
+                <input type="zatwierdz" id="szukaj_google" value="Szukaj w Google">
+                <input type="zatwierdz" id="szczesliwy_traf" value="Szczęśliwy traf">
+            </div>
         </div>
 
-        <!--Pole szukaj-->
-        <div class="pole_szukaj">
-            <form>
-                <label for="szukaj"></label>
-                <input type="text" id="szukaj">
-            </form>
-        </div>
-
-        <!--Przyciski-->
-        <div class="przyciski">
-            <input type="zatwierdz" id="szukaj_google" value="Szukaj w Google">
-            <input type="zatwierdz" id="szczesliwy_traf" value="Szczęśliwy traf">
-        </div>
-
-
-        <footer>
+        <div class="last">
+            <footer>
                 <li><a href="#">Polska</a></li>
-            <ul class="lewa">
-                <li><a href="#">Reklamuj się</a></li>
-                <li><a href="#">Dla firm</a></li>
-                <li><a href="#">O nas</a></li>
-            </ul>
-            <ul class="prawa">
-                <li><a href="#">Prywatność</a></li>
-                <li><a href="#">Warunki</a></li>
-                <li><a href="#">Ustawienia</a></li>
-            </ul>
-        </footer>
+                <ul class="lewa">
+                    <li><a href="#">Reklamuj się</a></li>
+                    <li><a href="#">Dla firm</a></li>
+                    <li><a href="#">O nas</a></li>
+                </ul>
+                <ul class="prawa">
+                    <li><a href="#">Prywatność</a></li>
+                    <li><a href="#">Warunki</a></li>
+                    <li><a href="#">Ustawienia</a></li>
+                </ul>
+            </footer>
+        </div>
     </div>
 </body>
